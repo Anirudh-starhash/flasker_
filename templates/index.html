@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,5 +11,28 @@
 <body>
     <h1>Hello World</h1>
     <p>This is the first web page</p>
+
+    <p>{{stuff | safe }}</p>
+    <p>{{stuff | striptags }}</p>
+
+    {% for car in favorite_cars %}
+    <p>The car is {{car}}</p>
+    {% endfor %}
+
+    {{favorite_cars.0}}
+
+    {% for car in favorite_cars %}
+
+        {% if car==41 %}
+            {{car+100}}
+        {% else %}
+           {{car}}
+        {% endif %}
+
+    {% endfor %}
+
+    {{favorite_cars.0 | reverse}}
 </body>
 </html>
+
+{% endblock %}
